@@ -87,6 +87,31 @@ public class Integers {
         return result;
     }
 
+    public static final int euclidsGreatestCommonDivsorGabriel(int x, int y) {
+        int greater = x;
+        int smaller = y;
+        if (y > x) {
+            greater = y;
+            smaller = x;
+        }
+
+        int result = 0;
+        while (true) {
+            if (greater % smaller == 0) {
+                result = smaller;
+                break;
+            }
+
+            greater %= smaller;
+            if (smaller > greater) {
+                int temp = smaller;
+                smaller = greater;
+                greater = temp;
+            }
+        }
+        return result;
+    }
+
     public static final boolean powerOfTwoUsingLoop(int numberToCheck) {
         int number = numberToCheck;
         if (number == 0)
